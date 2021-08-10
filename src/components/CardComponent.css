@@ -1,0 +1,17 @@
+.moodImg {
+    border-radius: 25%;
+    object-fit: cover;
+    height: 150px;
+}
+
+.col {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-basis: 15%;
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+}
