@@ -1,0 +1,6 @@
+[
+    { "id": "123", "name": "shirirave", "email": "shuroo1@hotmail.com", "pswrd": "Lilian123!", "role": "Admin" },
+    { "id": "456", "name": "johndoe", "email": "john@doe.com", "pswrd": "1234", "role": "Ragular" },
+    { "id": "78910", "name": "billie", "email": "billie@doe.com", "pswrd": "123456", "role": "Ragular" }
+
+]

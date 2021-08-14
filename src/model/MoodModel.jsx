@@ -4,6 +4,7 @@ class MoodModel{
         this.image = image;
         this.title = title;
         this.rate = rate;
+        this.key = title+"_"+rate;
     }
 }
 

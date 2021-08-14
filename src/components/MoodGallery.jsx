@@ -2,23 +2,25 @@ import React from "react";
 import './CardComponent.css'; 
 import MoodCardComponent from "./MoodCardComponent";
 
-function MoodGallery({moods,activeUser}){
+function MoodGallery({moods,activeUser,onCardClick}){
 
-    function goToChartsOrSolutions(){
+    // function goToChartsOrSolutions(){
 
-        if(activeUser.role === 'Admin'){
+    //     if(activeUser.role === 'Admin'){
 
-            // redirect to .. charts page..
-        }else{
-            //redirect to carousel...
-        }
-    }
+    //         // redirect to .. charts page..
+    //     }else{
+    //         //redirect to carousel...
+    //     }
+    // }
 
-    let moodHtml = moods.map(mood=><MoodCardComponent onClick={alert(111)} key={mood.key+"1"} mood={mood} rate={mood.rate}/>)
+    let moodHtml = moods.map(mood=><MoodCardComponent onCardClick={()=>onCardClick(mood.rate)} key={mood.key+"1"} mood={mood}/>)
 
 
 return(
-<div className="gallery">{moodHtml}</div>
+<div className="gallery">
+    {moodHtml}</div>
+
 
 )
 

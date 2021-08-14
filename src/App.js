@@ -1,49 +1,62 @@
 import HomePage from './pages/HomePage';
-import RateMoodPage from './pages/RateMoodPage'
 import './App.css';
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // using ES6 modules
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter, Route } from "react-router-dom";
 import { Switch } from "react-router";
 import SolutionsPage from './pages/Solutions';
 // import MoodChartPage from './pages/MoodChartPage'
 import PlaySongActivity from './pages/PlaySongActivity'
 // Import Parse minified version
 import Parse from 'parse/dist/parse.min.js';
-import LoginPage from './pages/LoginPage';
-import PrevLogin from './pages/PrevLogin';
-// Your Parse initialization configuration goes here
-const PARSE_APPLICATION_ID = 'IE6u59r2UOS1JwKu5Wr5o7dbiVQMzxsIqUnx9xl1';
-const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
-const PARSE_JAVASCRIPT_KEY = '9eKPlczqhsvxqyTKqKKu4qkTaNSAuSNV3pP6vmls';
-Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
-Parse.serverURL = PARSE_HOST_URL;
-
+import LoginPage from './components/LoginComponent';
+import SignUp from './pages/SignUp';
+import Utils from './utils/Utils';
+import ActiveUserContext from './utils/ActiveUserContext';
+import MoodChartsPage from './pages/MoodChartsPage';
 
 function App() {
 
+    // Your Parse initialization configuration goes here
+    Utils.parseInit();
+
+    const [activeUser, setActiveUser] = useState();
+
+    function logout() {
+        Parse.User.logOut();
+        setActiveUser();
+    }
+
     return ( <
-        Router >
+        ActiveUserContext.Provider value = { activeUser } >
+        <
+        HashRouter >
         <
         Switch >
+        <
+        Route exact path = "/signup"
+        activeUser = { activeUser } > < SignUp / >
+        <
+        /Route>    <
+        Route exact path = "/graphs"
+        activeUser = { activeUser } >
+        <
+        MoodChartsPage / > < /Route>  
+
+        <
+        Route exact path = "/solutions"
+        activeUser = { activeUser } > < SolutionsPage / > < /Route> 
+
         <
         Route exact path = "/" >
         <
         HomePage / >
         <
-        /Route> <Route exact path = "/login
-        " >  <
-        PrevLogin / > < /Route>  <
-        Route exact path = "/solutions" >
-        <
-        SolutionsPage / > < /Route>
+        /Route>
 
         <
-        /Switch>  < /
-        Router >
-
+        /Switch > </HashRouter > < /ActiveUserContext.Provider>
     );
-}
-
+};
 export default App;

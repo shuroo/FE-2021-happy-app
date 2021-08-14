@@ -2,37 +2,75 @@ import React from 'react';
 import { useState } from 'react';
 import { Button, Form, Alert, Spinner } from 'react-bootstrap';
 import { Link, Redirect } from 'react-router-dom';
-import './LoginPage.css';
+//import './LoginComponent.css';
 import UserModel from '../model/UserModel';
 import Parse from 'parse';
- 
-function LoginPage({activeUser, onLogin}) {
-    const [email, setEmail] = useState();//"shuroo1@hotmail.com");
-    const [pwd, setPwd] = useState();//"Lilian123!");
+import Utils from '../utils/Utils';
+
+function LoginComponent({onLogin}) {
+    const [activeUser, setActiveUser] = useState();
+    const [email, setEmail] = useState();
+    const [pwd, setPwd] = useState();
     const [showInvalidLogin, setShowInvalidLogin] = useState(false);
     const [loggingIn, setLoggingIn] = useState(false);
 
     if (activeUser) {
-        console.log('is active!');
-        return <Redirect to="/rate"/>
+        console.log('is active!'+activeUser.name);
+        return <Redirect activeUser={activeUser} to="/"/>;
     }
 
     function login() {
         setLoggingIn(true);
 
+        Utils.parseInit();
+
         Parse.User.logIn(email, pwd).then(user => {
+            
             // Invoke parent (App) function to update the activeUser state in the app
-            onLogin(new UserModel(user));
+            localStorage.setItem("activeUser", JSON.stringify(activeUser));
+            
+            onLogin(user);
+            //<Redirect to="/rate" activeUser={user} />
+
         }).catch(err => {
             console.error(err);
             // Showing an alert
+            console.log(err);
             setShowInvalidLogin(true);            
         }).finally(() => {
             setLoggingIn(false);
         });
     }
 
+    function loginJsons() {
+        setLoggingIn(true);
+        fetch('.././data/users.json').then(response => response.json()).then(data => {
+    
+              const activeUsers = data.filter(
+                function(data){ 
+                   return data.email === email && data.pswrd === pwd;}
+            );
+             if(activeUsers){
+                 // set active user , add to users collection etc ...:
+                 var activeUsrJson = activeUsers[0];
+                 console.log(activeUsrJson);
+                 var activeUsr = new UserModel(activeUsrJson); 
+                onLogin(activeUsr);
+                // 
+                setActiveUser(activeUsr);
+                setLoggingIn(false);
+             }else{
+                setShowInvalidLogin(true);  
+             }}).catch(err => {
+        console.error(err);
+        // Showing an alert
+        setShowInvalidLogin(true);
+        setLoggingIn(false);            
+    });
+}
+
     return (
+        
         <div className="p-login">
             <h1>Login to Happy app </h1>
             <p>or <Link to="/signup">create an account</Link></p>
@@ -42,7 +80,7 @@ function LoginPage({activeUser, onLogin}) {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" 
-                        value={email} onChange={e => setEmail(e.target.value)} />
+                        value={email || ''} onChange={e => setEmail(e.target.value)} />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -51,7 +89,7 @@ function LoginPage({activeUser, onLogin}) {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" 
-                        value={pwd} onChange={e => setPwd(e.target.value)} />
+                        value={pwd || ''} onChange={e => setPwd(e.target.value)} />
                 </Form.Group>
                 <div className="d-grid gap-2">
                     <Button variant="success" type="button" onClick={login} disabled={loggingIn}>
@@ -63,4 +101,4 @@ function LoginPage({activeUser, onLogin}) {
     );
 }
 
-export default LoginPage;
+export default LoginComponent;
