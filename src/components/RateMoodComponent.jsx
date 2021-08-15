@@ -7,6 +7,7 @@ import Parse from 'parse';
 import Utils from '../utils/Utils';
 import { Redirect } from 'react-router';
 import Alert from 'react-bootstrap/Alert';
+import { Link } from "react-router-dom"; 
 
 function RateMoodComponent({activeUser}) {
  
@@ -48,8 +49,7 @@ function RateMoodComponent({activeUser}) {
     }
 
     const navigateGraphs = (activeUser && activeUser.role === 'admin' ? 
-    <button className="button button-primary"  onClick={()=>
-    <Redirect to="/graphs"/>} >Go To Mood Graphs</button> : null);
+    <Link className="link link-primary"   to="/graphs" >Go To Mood Graphs</Link> : null);
 
     const content = (    
         <Container>
@@ -58,18 +58,18 @@ function RateMoodComponent({activeUser}) {
 
 <Alert style={{display:(!isRated? "none" : "block")}} className="alert alert-secondary"><h4>Thank You!</h4>
 <p>
-               
-    <button className="button button-primary" onClick={<Redirect activeUser={activeUser} to="/solutions"/>}> Checkout suggested solutions</button>
-    {navigateGraphs}
+<Link className="button button-primary" to="/solutions"> Checkout suggested solutions</Link>
+             
+     {navigateGraphs}
 </p>
 </Alert>
 <div style={{display:(isRated? "none" : "block")}} >
              <MoodGallery  onCardClick={(moodRate)=>saveToChart(moodRate,customDate)} moods={moods} activeUser={activeUser}/>
-             {/* <FormGroup>
+              <FormGroup>
                 <Form.Label>Custom Date:</Form.Label>
-                <Form.Control type="date" placeholder={customDate} onChange={e=>setCustomDate(new Date(e.target.value))}  />
+                <Form.Control type="date" placeholder={Utils.dateFormat(customDate)} onChange={e=>setCustomDate(new Date(e.target.value))}  />
  
-                </FormGroup>; */}
+                </FormGroup>; 
                 </div>   </Container>);
 
 return (       

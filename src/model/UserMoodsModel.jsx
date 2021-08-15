@@ -1,8 +1,7 @@
 
 class UserMoodsModel {
      
-    constructor(userModel){
-        console.log('moodDate:::::'+userModel.get("moodDate"))
+    constructor(userModel){ 
         console.log(JSON.stringify(userModel));
         this.moodDate = userModel.get("moodDate");
         this.id = userModel.id;

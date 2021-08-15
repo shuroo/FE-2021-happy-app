@@ -42,32 +42,32 @@ function LoginComponent({onLogin}) {
         });
     }
 
-    function loginJsons() {
-        setLoggingIn(true);
-        fetch('.././data/users.json').then(response => response.json()).then(data => {
+//     function loginJsons() {
+//         setLoggingIn(true);
+//         fetch('.././data/users.json').then(response => response.json()).then(data => {
     
-              const activeUsers = data.filter(
-                function(data){ 
-                   return data.email === email && data.pswrd === pwd;}
-            );
-             if(activeUsers){
-                 // set active user , add to users collection etc ...:
-                 var activeUsrJson = activeUsers[0];
-                 console.log(activeUsrJson);
-                 var activeUsr = new UserModel(activeUsrJson); 
-                onLogin(activeUsr);
-                // 
-                setActiveUser(activeUsr);
-                setLoggingIn(false);
-             }else{
-                setShowInvalidLogin(true);  
-             }}).catch(err => {
-        console.error(err);
-        // Showing an alert
-        setShowInvalidLogin(true);
-        setLoggingIn(false);            
-    });
-}
+//               const activeUsers = data.filter(
+//                 function(data){ 
+//                    return data.email === email && data.pswrd === pwd;}
+//             );
+//              if(activeUsers){
+//                  // set active user , add to users collection etc ...:
+//                  var activeUsrJson = activeUsers[0];
+//                  console.log(activeUsrJson);
+//                  var activeUsr = new UserModel(activeUsrJson); 
+//                 onLogin(activeUsr);
+//                 // 
+//                 setActiveUser(activeUsr);
+//                 setLoggingIn(false);
+//              }else{
+//                 setShowInvalidLogin(true);  
+//              }}).catch(err => {
+//         console.error(err);
+//         // Showing an alert
+//         setShowInvalidLogin(true);
+//         setLoggingIn(false);            
+//     });
+// }
 
     return (
         
@@ -76,7 +76,7 @@ function LoginComponent({onLogin}) {
             <p>or <Link to="/signup">create an account</Link></p>
             {showInvalidLogin ?
                 <Alert variant="danger" onClose={() => setShowInvalidLogin(false)} dismissible>Invalid Credentials!</Alert> : null}
-            <Form>
+            <Form >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" 
@@ -92,7 +92,7 @@ function LoginComponent({onLogin}) {
                         value={pwd || ''} onChange={e => setPwd(e.target.value)} />
                 </Form.Group>
                 <div className="d-grid gap-2">
-                    <Button variant="success" type="button" onClick={login} disabled={loggingIn}>
+                    <Button type="submit" variant="success" type="button" onClick={login} disabled={loggingIn}>
                         Login {loggingIn ? <Spinner animation="border" /> : null}
                     </Button>
                 </div>

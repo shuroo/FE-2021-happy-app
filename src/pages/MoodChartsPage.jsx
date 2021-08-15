@@ -49,12 +49,6 @@ function MoodChartsPage({activeUser}) {
 		});
 	}
 
-	function dateFormat(d){
-		let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-		let mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
-		let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
-		return `${da}/${mo}/${ye}`;
-	}
 
 	function fetchMoodsByUser() {
 		if(!selectedUser){ return; }
@@ -66,7 +60,7 @@ function MoodChartsPage({activeUser}) {
 			console.log("Error: " + error.code + " " + error.message);       
 		});
 	
-		var dates = userMoods.map(mood=> {console.log(mood.moodDate); return dateFormat(mood.moodDate);});
+		var dates = userMoods.map(mood=> {console.log(mood.moodDate); return Utils.dateFormat(mood.moodDate);});
 		var rates = userMoods.map(mood=> {console.log(mood.moodRate); return mood.moodRate});
 
 		console.log("dates:"+dates.length+",rates:"+rates.length);
