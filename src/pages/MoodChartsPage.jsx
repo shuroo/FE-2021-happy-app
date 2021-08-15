@@ -60,8 +60,8 @@ function MoodChartsPage({activeUser}) {
 			console.log("Error: " + error.code + " " + error.message);       
 		});
 	
-		var dates = userMoods.map(mood=> {console.log(mood.moodDate); return Utils.dateFormat(mood.moodDate);});
-		var rates = userMoods.map(mood=> {console.log(mood.moodRate); return mood.moodRate});
+		var dates = userMoods.map(mood=> { return Utils.dateFormat(mood.moodDate);});
+		var rates = userMoods.map(mood=> { return mood.moodRate});
 
 		console.log("dates:"+dates.length+",rates:"+rates.length);
 		const dataCln = {...data};

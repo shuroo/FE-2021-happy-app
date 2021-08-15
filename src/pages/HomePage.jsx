@@ -6,7 +6,7 @@ import  { Redirect } from 'react-router-dom';
 import LoginComponent from '../components/LoginComponent';
 import  RateMoodComponent  from '../components/RateMoodComponent';
 import UserModel from '../model/UserModel';
-
+import sizypus_img from  '../images/syzipus.jpeg'; 
 function HomePage() {
 
     const [activeUser,setActiveUser] = useState();
@@ -48,7 +48,7 @@ function HomePage() {
              <Container>
                  <h1  >Happy App</h1>
                 <p>Find your way</p> <div>
-                  <img src="./syzipus.jpeg" alt="syzipus" />
+                  <img src={sizypus_img} alt="syzipus" />
                 </div> <p>Let the stone of obligations be lighter..</p>
                <div style={{border:"1px solid black",
                display:(activeUser? "none" : "block")}}> 
