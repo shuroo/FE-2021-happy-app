@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/FE-2021-happy-app/static/css/main.e2292e9a.chunk.css",
-    "main.js": "/FE-2021-happy-app/static/js/main.71c3305c.chunk.js",
-    "main.js.map": "/FE-2021-happy-app/static/js/main.71c3305c.chunk.js.map",
-    "runtime-main.js": "/FE-2021-happy-app/static/js/runtime-main.495646f1.js",
-    "runtime-main.js.map": "/FE-2021-happy-app/static/js/runtime-main.495646f1.js.map",
-    "static/css/2.8d87a43d.chunk.css": "/FE-2021-happy-app/static/css/2.8d87a43d.chunk.css",
-    "static/js/2.0125a275.chunk.js": "/FE-2021-happy-app/static/js/2.0125a275.chunk.js",
-    "static/js/2.0125a275.chunk.js.map": "/FE-2021-happy-app/static/js/2.0125a275.chunk.js.map",
-    "static/js/3.4c9be957.chunk.js": "/FE-2021-happy-app/static/js/3.4c9be957.chunk.js",
-    "static/js/3.4c9be957.chunk.js.map": "/FE-2021-happy-app/static/js/3.4c9be957.chunk.js.map",
+    "main.css": "/FE-2021-happy-app/static/css/main.2ac067ff.chunk.css",
+    "main.js": "/FE-2021-happy-app/static/js/main.f2651022.chunk.js",
+    "main.js.map": "/FE-2021-happy-app/static/js/main.f2651022.chunk.js.map",
+    "runtime-main.js": "/FE-2021-happy-app/static/js/runtime-main.7c4f2bf1.js",
+    "runtime-main.js.map": "/FE-2021-happy-app/static/js/runtime-main.7c4f2bf1.js.map",
+    "static/css/2.6f20bcca.chunk.css": "/FE-2021-happy-app/static/css/2.6f20bcca.chunk.css",
+    "static/js/2.89d6f017.chunk.js": "/FE-2021-happy-app/static/js/2.89d6f017.chunk.js",
+    "static/js/2.89d6f017.chunk.js.map": "/FE-2021-happy-app/static/js/2.89d6f017.chunk.js.map",
+    "static/js/3.6812ab6c.chunk.js": "/FE-2021-happy-app/static/js/3.6812ab6c.chunk.js",
+    "static/js/3.6812ab6c.chunk.js.map": "/FE-2021-happy-app/static/js/3.6812ab6c.chunk.js.map",
     "index.html": "/FE-2021-happy-app/index.html",
-    "static/css/2.8d87a43d.chunk.css.map": "/FE-2021-happy-app/static/css/2.8d87a43d.chunk.css.map",
-    "static/css/main.e2292e9a.chunk.css.map": "/FE-2021-happy-app/static/css/main.e2292e9a.chunk.css.map",
-    "static/js/2.0125a275.chunk.js.LICENSE.txt": "/FE-2021-happy-app/static/js/2.0125a275.chunk.js.LICENSE.txt",
+    "static/css/2.6f20bcca.chunk.css.map": "/FE-2021-happy-app/static/css/2.6f20bcca.chunk.css.map",
+    "static/css/main.2ac067ff.chunk.css.map": "/FE-2021-happy-app/static/css/main.2ac067ff.chunk.css.map",
+    "static/js/2.89d6f017.chunk.js.LICENSE.txt": "/FE-2021-happy-app/static/js/2.89d6f017.chunk.js.LICENSE.txt",
     "static/media/activity.4445e831.jpg": "/FE-2021-happy-app/static/media/activity.4445e831.jpg",
     "static/media/bumpy.3a074310.jpg": "/FE-2021-happy-app/static/media/bumpy.3a074310.jpg",
     "static/media/crying_cloud.6e5a9894.png": "/FE-2021-happy-app/static/media/crying_cloud.6e5a9894.png",
@@ -32,10 +32,10 @@
     "static/media/syzipus.c29adb73.jpeg": "/FE-2021-happy-app/static/media/syzipus.c29adb73.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.495646f1.js",
-    "static/css/2.8d87a43d.chunk.css",
-    "static/js/2.0125a275.chunk.js",
-    "static/css/main.e2292e9a.chunk.css",
-    "static/js/main.71c3305c.chunk.js"
+    "static/js/runtime-main.7c4f2bf1.js",
+    "static/css/2.6f20bcca.chunk.css",
+    "static/js/2.89d6f017.chunk.js",
+    "static/css/main.2ac067ff.chunk.css",
+    "static/js/main.f2651022.chunk.js"
   ]
 }
