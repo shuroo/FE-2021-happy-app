@@ -8,14 +8,15 @@
 
 .col {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
     flex-basis: 15%;
 }
 
 .gallery {
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
 .moodCard :hover {
@@ -23,5 +24,36 @@
 }
 
 .moodCard {
-    background-color: white;
+    background-color: chocolate;
+}
+
+.moodCard img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    margin: auto;
+    flex-grow: 1;
+    background-color: chocolate;
+}
+
+.dateLabel {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgray;
+    margin: 10px;
+    margin: auto;
+}
+
+h3 {
+    color: gray;
+}
+
+body {
+    background-color: darkolivegreen;
+}
+
+.href {
+    color: black;
 }

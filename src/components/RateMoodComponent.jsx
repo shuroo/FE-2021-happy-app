@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container,Button, FormGroup, Form } from 'react-bootstrap';
 import MoodModel from '../model/MoodModel';
+import DatePicker from 'react-date-picker'
 import MoodGallery from './MoodGallery';
 import Parse from 'parse';
 import Utils from '../utils/Utils'; 
@@ -23,16 +24,17 @@ function RateMoodComponent({activeUser}) {
  
     const [customDate,setCustomDate] = useState(new Date());
     const [isRated,setIsRated] = useState(false);
-    const [moods,setMoods] = useState([new MoodModel(crying_cloud_img,"Depressed",1)
+    const moods1 = [new MoodModel(crying_cloud_img,"Depressed",1)
     ,new MoodModel(mad_sad_img,"Sad",2)
-    ,new MoodModel(mad_cloud2_img,"Angry",3) 
-    ,new MoodModel(so_so_img,"Could be a lot better",4)
+    ,new MoodModel(mad_cloud2_img,"Angry",3)];
+
+     const moods2 = [new MoodModel(so_so_img,"Could be a lot better",4)
     ,new MoodModel(indifferent_sunshine_img,"Ok",5),
-    ,new MoodModel(ok_plus_img,"Ok Plus",6),
-    ,new MoodModel(partially_cloudy_img,"Optmistic",7)
+    ,new MoodModel(ok_plus_img,"Ok Plus",6)];
+    const moods3 = [new MoodModel(partially_cloudy_img,"Optmistic",7)
     ,new MoodModel(sunshine_78_img,"Getting Better",8)
     ,new MoodModel(sunshine_img,"Quite Happy",9),
-    ,new MoodModel(happy_sunshine,"Happy",10)])
+    ,new MoodModel(happy_sunshine,"Happy",10)];
 
     function saveToChart(moodRate,moodDate){
 
@@ -65,9 +67,11 @@ function RateMoodComponent({activeUser}) {
 
     const content = (    
         <Container>
+            <div className="row">
             <h3  >Hello {activeUser.name}!</h3> 
 <h6>Please choose your current mood to rate it (on click)</h6>
 
+</div>  
 <Alert style={{display:(!isRated? "none" : "block")}} className="alert alert-secondary"><h4>Thank You!</h4>
 <p>
 <Link className="button button-primary" to="/solutions"> Checkout suggested solutions</Link>
@@ -76,12 +80,25 @@ function RateMoodComponent({activeUser}) {
 </p>
 </Alert>
 <div style={{display:(isRated? "none" : "block")}} >
-             <MoodGallery  onCardClick={(moodRate)=>saveToChart(moodRate,customDate)} moods={moods} activeUser={activeUser}/>
-              <FormGroup>
-                <Form.Label>Custom Date:</Form.Label>
-                <Form.Control type="date" placeholder={Utils.dateFormat(customDate)} onChange={e=>setCustomDate(new Date(e.target.value))}  />
+
+<div className="dateLabel">
+                <Form.Label >Change Date:</Form.Label>
+                <DatePicker
+                    onChange={setCustomDate}
+                    value={customDate}
+                /> 
+     </div> 
+<FormGroup>
+        
+                </FormGroup> 
+    
+    <div className="col">
+                    <MoodGallery  onCardClick={(moodRate)=>saveToChart(moodRate,customDate)} moods={moods1} activeUser={activeUser}/>
+                    <MoodGallery  onCardClick={(moodRate)=>saveToChart(moodRate,customDate)} moods={moods2} activeUser={activeUser}/>
+                    <MoodGallery  onCardClick={(moodRate)=>saveToChart(moodRate,customDate)} moods={moods3} activeUser={activeUser}/>
  
-                </FormGroup>; 
+                    </div>
+
                 </div>   </Container>);
 
 return (       

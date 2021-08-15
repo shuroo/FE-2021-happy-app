@@ -6,7 +6,7 @@ function MoodCardComponent({mood,onCardClick}) {
 	
 	return (
  
-<Card>
+<Card className="moodCard">
 <a style={{ cursor: 'pointer' }}  onClick={()=>onCardClick(mood.rate)}>
 <Card.Img variant="top moodImg"  src={mood.image} alt={mood.title+" "+mood.rate} />
 <Card.Body>
