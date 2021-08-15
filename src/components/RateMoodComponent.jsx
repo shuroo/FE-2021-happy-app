@@ -2,25 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { Container,Button, FormGroup, Form } from 'react-bootstrap';
 import MoodModel from '../model/MoodModel';
 import MoodGallery from './MoodGallery';
-import LoginComponent from './LoginComponent';
 import Parse from 'parse';
-import Utils from '../utils/Utils';
-import { Redirect } from 'react-router';
+import Utils from '../utils/Utils'; 
+import mad_sad_img from '../images/mad_sad_cloud.png';
+import crying_cloud_img from '../images/crying_cloud.png';
+import indifferent_sunshine_img from '../images/indifferent_sunshine.jpg';
+import mad_cloud2_img from '../images/mad_cloud2.jpg';
+import partially_cloudy_img from '../images/partially_cloudy.png';
+import sunshine_img from '../images/sunshine.jpg';
+import happy_sunshine from '../images/happy_sunshine.jpg';
+import sunshine_78_img from '../images/sunshine_7-8.jpg';
+import so_so_img from '../images/so_so_img.jpeg';
+import ok_plus_img from '../images/img_ok_plus.png';
 import Alert from 'react-bootstrap/Alert';
 import { Link } from "react-router-dom"; 
+
+
 
 function RateMoodComponent({activeUser}) {
  
     const [customDate,setCustomDate] = useState(new Date());
     const [isRated,setIsRated] = useState(false);
-    const [moods,setMoods] = useState([new MoodModel("./crying_cloud.png","Depressed",1)
-    ,new MoodModel("./mad_sad_cloud.png","Sad",2)
-    ,new MoodModel("./mad_cloud2.jpg","Angry",3) 
-
-    ,new MoodModel("./indifferent_sunshine.jpg","Ok",5),
-    ,new MoodModel("./partially_cloudy.png","Optmistic",8)
-    ,new MoodModel("./sunshine.jpg","Quite Happy",9),
-    ,new MoodModel("./happy_sunshine.jpg","Happy",10)])
+    const [moods,setMoods] = useState([new MoodModel(crying_cloud_img,"Depressed",1)
+    ,new MoodModel(mad_sad_img,"Sad",2)
+    ,new MoodModel(mad_cloud2_img,"Angry",3) 
+    ,new MoodModel(so_so_img,"Could be a lot better",4)
+    ,new MoodModel(indifferent_sunshine_img,"Ok",5),
+    ,new MoodModel(ok_plus_img,"Ok Plus",6),
+    ,new MoodModel(partially_cloudy_img,"Optmistic",7)
+    ,new MoodModel(sunshine_78_img,"Getting Better",8)
+    ,new MoodModel(sunshine_img,"Quite Happy",9),
+    ,new MoodModel(happy_sunshine,"Happy",10)])
 
     function saveToChart(moodRate,moodDate){
 

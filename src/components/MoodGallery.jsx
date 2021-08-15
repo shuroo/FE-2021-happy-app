@@ -4,16 +4,6 @@ import MoodCardComponent from "./MoodCardComponent";
 
 function MoodGallery({moods,activeUser,onCardClick}){
 
-    // function goToChartsOrSolutions(){
-
-    //     if(activeUser.role === 'Admin'){
-
-    //         // redirect to .. charts page..
-    //     }else{
-    //         //redirect to carousel...
-    //     }
-    // }
-
     let moodHtml = moods.map(mood=><MoodCardComponent onCardClick={()=>onCardClick(mood.rate)} key={mood.key+"1"} mood={mood}/>)
 
 

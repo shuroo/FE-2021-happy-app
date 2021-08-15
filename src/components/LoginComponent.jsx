@@ -42,33 +42,6 @@ function LoginComponent({onLogin}) {
         });
     }
 
-//     function loginJsons() {
-//         setLoggingIn(true);
-//         fetch('.././data/users.json').then(response => response.json()).then(data => {
-    
-//               const activeUsers = data.filter(
-//                 function(data){ 
-//                    return data.email === email && data.pswrd === pwd;}
-//             );
-//              if(activeUsers){
-//                  // set active user , add to users collection etc ...:
-//                  var activeUsrJson = activeUsers[0];
-//                  console.log(activeUsrJson);
-//                  var activeUsr = new UserModel(activeUsrJson); 
-//                 onLogin(activeUsr);
-//                 // 
-//                 setActiveUser(activeUsr);
-//                 setLoggingIn(false);
-//              }else{
-//                 setShowInvalidLogin(true);  
-//              }}).catch(err => {
-//         console.error(err);
-//         // Showing an alert
-//         setShowInvalidLogin(true);
-//         setLoggingIn(false);            
-//     });
-// }
-
     return (
         
         <div className="p-login">

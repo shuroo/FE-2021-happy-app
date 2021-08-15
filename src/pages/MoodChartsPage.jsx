@@ -1,14 +1,10 @@
 import React, { useState,useEffect,useMemo } from "react";
 import { MDBContainer } from "mdbreact";
-import { Bar,   Chart,   Pie } from "react-chartjs-2";
-import UserModelJson from "../model/UserModelJson";
+import { Bar,   Chart,   Pie ,Line} from "react-chartjs-2";
 import UserModel from "../model/UserModel";
 import UserMoodsModel from "../model/UserMoodsModel";
-import UserMoods from "../model/UserMoodsModel";
 import Parse from 'parse';
 import Utils from '../utils/Utils';
-import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
-import DDMenu from "../components/DDMenuComponent";
 import { Button, Form } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
 

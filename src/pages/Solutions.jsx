@@ -1,14 +1,18 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-import { Container, Tabs } from 'react-bootstrap';
-import MoodModel from '../model/MoodModel';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
+import surprise_img from "../images/surprise.jpeg";
+import song_img from "../images/song.jpg";
+import activity_img from "../images/activity.jpg";
+import meeting_people_img from "../images/meeting_people2.jpg" ;
+import bumpy_img from "../images/bumpy.jpg";
+import calm_img from "../images/something_calm.jpg";
+
 
 function SolutionsPage(props) {
  
-
 
 return (
 	<div style={{ display: 'block', width: 700, padding: 30 }}>
@@ -19,7 +23,7 @@ return (
 		<h3>Surprise me!</h3>
 		<img 
 			className="d-block w-100"
-src="./surprise.jpeg"			alt="Surprise me"
+src={surprise_img}			alt="Surprise me"
 		/>
 		<Carousel.Caption>
 			<h3>Surprise me!</h3>
@@ -30,7 +34,7 @@ src="./surprise.jpeg"			alt="Surprise me"
 		<h3>Find me a song!</h3>
 		<img
 			className="d-block w-100"
-src="./song.jpg"
+src={song_img}
 			alt="Find me a song!"
 		/>
 		<Carousel.Caption>
@@ -42,7 +46,7 @@ src="./song.jpg"
 		<h3>Find me an activity!</h3>
 		<img
 			className="d-block w-100"
-src="./activity.jpg"			alt="Find me an activity!"
+src={activity_img}			alt="Find me an activity!"
 		/>
 		<Carousel.Caption>
 			<h3>Find me an activity!</h3>
@@ -53,7 +57,7 @@ src="./activity.jpg"			alt="Find me an activity!"
 		<h3>Meet people!</h3>
 		<img onClick={()=>alert('Meet People!')} 
 			className="d-block w-100"
-src="./meeting_people2.jpg"
+src={meeting_people_img}
 			alt="Meeting people!"
 		/>
 		<Carousel.Caption>
@@ -65,7 +69,7 @@ src="./meeting_people2.jpg"
 			<h3>Something Bumpy!</h3>
 		<img 
 			className="d-block w-100"
-src="./bumpy.jpg"
+src={bumpy_img}
 			alt="Something Bumpy!"
 		/>
 		<Carousel.Caption>
@@ -77,7 +81,7 @@ src="./bumpy.jpg"
 		<h3>Something Calm</h3>
 		<img
 			className="d-block w-100"
-src="./something_calm.jpg"
+src={calm_img}
 			alt="something calm"
 		/>
 		<Carousel.Caption>
