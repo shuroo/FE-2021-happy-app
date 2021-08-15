@@ -18,8 +18,6 @@ import ok_plus_img from '../images/img_ok_plus.png';
 import Alert from 'react-bootstrap/Alert';
 import { Link } from "react-router-dom"; 
 
-
-
 function RateMoodComponent({activeUser}) {
  
     const [customDate,setCustomDate] = useState(new Date());
@@ -40,8 +38,7 @@ function RateMoodComponent({activeUser}) {
 
         // todo: fix the init..
         // Your Parse initialization configuration goes here
-        Utils.parseInit();
-        console.log('saveToChart');
+        Utils.parseInit(); 
         const userMoods = Parse.Object.extend("UserMoods");
         const userMood = new userMoods();
 

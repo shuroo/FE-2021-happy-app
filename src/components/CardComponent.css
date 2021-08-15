@@ -33,7 +33,6 @@
     object-fit: contain;
     margin: auto;
     flex-grow: 1;
-    background-color: chocolate;
 }
 
 .dateLabel {
@@ -43,7 +42,15 @@
     padding: 10px;
     border: 1px solid lightgray;
     margin: 10px;
+}
+
+.dateLabel * {
+    font-weight: bold;
+}
+
+.dateLabel *:last-child {
     margin: auto;
+    font-weight: bold;
 }
 
 h3 {

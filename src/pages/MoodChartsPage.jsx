@@ -7,6 +7,9 @@ import Parse from 'parse';
 import Utils from '../utils/Utils';
 import { Button, Form } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
+import './moodCharts.css';
+import { useHistory } from 'react-router-dom';
+
 
 function MoodChartsPage({activeUser}) {
 
@@ -21,16 +24,35 @@ function MoodChartsPage({activeUser}) {
 			labels: [],
 			label: "",
 			data: [],
-			backgroundColor: ["red", "blue", "green"], 
+			backgroundColor: ["red", "lightblue", "lightgreen","pink","lightgray"], 
 			hoverBackgroundColor: "rgba(232,105,90,0.8)",
 			borderWidth: 1,
 			borderColor: "#000000"
 		}
 		]
 	});
- 	const bar = useMemo(() =>{return <Bar data={data}
-	style={{ maxHeight: '600px' }}/> }
+	let history = useHistory();
+
+	const goToSolutions = () => {
+	  history.push('/solutions')
+	}
+
+	const line = useMemo(() =>{return <Line data={data}
+	style={{ maxHeight: '300px'}}/> }
    ,[data]);
+ 	const bar = useMemo(() =>{return <Bar data={data}
+	style={{ maxHeight: '300px'}}/> }
+   ,[data]);
+   const pie =    useMemo(() =>{return <Pie style={{ maxHeight: '300px',maxWidth: '30%' }}
+   data={data}
+   labels={data.labels}
+   width={3}
+   height={3}
+   options={{
+	 legend:{display:false},
+	 title: {display: true},
+   }}/>})
+
 
 	function fetchUserByEmail() {
 		Utils.parseInit();
@@ -49,7 +71,7 @@ function MoodChartsPage({activeUser}) {
 	function fetchMoodsByUser() {
 		if(!selectedUser){ return; }
 		const query = new Parse.Query("UserMoods");
-		query.equalTo("email", userEmailToDisplay);
+		query.equalTo("email", userEmailToDisplay).ascending("moodDate");
 		query.select("moodRate","moodDate").find().then(function(moods){
 			setUserMoods(moods.map(mood=>new UserMoodsModel(mood)));
 		}).catch(function(error){
@@ -71,35 +93,32 @@ function MoodChartsPage({activeUser}) {
 	useEffect(()=>fetchMoodsByUser(),[selectedUser]);
 
 
-
 return (
+	<div>
 	<div>
 		<h4>Select user to view its mood graph:</h4>
 		<Alert  style={{display:(!failedToFetchUser? "none" : "block")}} className="alert alert-warning">
 		Error: Failed to fetch selected user, please check your email
 		</Alert> 
-		<Form style={{display:(failedToFetchUser? "none" : "block")}} onSubmit={e=>e.preventDefault()}>
+		<Form   onSubmit={e=>e.preventDefault()}>
 			<Form.Label>Enter user email to display its graphs:</Form.Label>
 		 	<Form.Control type="email" placeholder="Enter email" 
                         value={userEmailToDisplay || ''} onChange={e => setUserEmailToDisplay(e.target.value)} />
 		</Form>
 		<Button className="button button-secondary" onClick={fetchUserByEmail}>Show Graphs!</Button>
-	
-		<MDBContainer style={{display:(!!failedToFetchUser? "none" : "block")}}>
-	{bar}
-	</MDBContainer>
-	       <Pie 
-        data={data}
-		labels={data.labels}
-        width={3}
-        height={3}
-        options={{
-          legend:{display:false},
-          title: {display: true},
-        }}/>
- 
-	</div>
+		<Button className="button button-secondary" onClick={goToSolutions}>GoTo Suggested Solutions!</Button>
 
+</div>
+<div className="graphsCls">
+		<MDBContainer>
+	{line}
+	</MDBContainer>	
+	<MDBContainer>
+	{pie}
+	</MDBContainer>
+	</div>
+	
+</div>
 )}
 
 export default MoodChartsPage;
