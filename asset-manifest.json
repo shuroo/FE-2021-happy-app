@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/FE-2021-happy-app/static/css/main.2ac067ff.chunk.css",
+    "main.css": "/FE-2021-happy-app/static/css/main.ec73b4e6.chunk.css",
     "main.js": "/FE-2021-happy-app/static/js/main.f2651022.chunk.js",
     "main.js.map": "/FE-2021-happy-app/static/js/main.f2651022.chunk.js.map",
     "runtime-main.js": "/FE-2021-happy-app/static/js/runtime-main.7c4f2bf1.js",
@@ -12,7 +12,7 @@
     "static/js/3.6812ab6c.chunk.js.map": "/FE-2021-happy-app/static/js/3.6812ab6c.chunk.js.map",
     "index.html": "/FE-2021-happy-app/index.html",
     "static/css/2.6f20bcca.chunk.css.map": "/FE-2021-happy-app/static/css/2.6f20bcca.chunk.css.map",
-    "static/css/main.2ac067ff.chunk.css.map": "/FE-2021-happy-app/static/css/main.2ac067ff.chunk.css.map",
+    "static/css/main.ec73b4e6.chunk.css.map": "/FE-2021-happy-app/static/css/main.ec73b4e6.chunk.css.map",
     "static/js/2.89d6f017.chunk.js.LICENSE.txt": "/FE-2021-happy-app/static/js/2.89d6f017.chunk.js.LICENSE.txt",
     "static/media/activity.4445e831.jpg": "/FE-2021-happy-app/static/media/activity.4445e831.jpg",
     "static/media/bumpy.3a074310.jpg": "/FE-2021-happy-app/static/media/bumpy.3a074310.jpg",
@@ -35,7 +35,7 @@
     "static/js/runtime-main.7c4f2bf1.js",
     "static/css/2.6f20bcca.chunk.css",
     "static/js/2.89d6f017.chunk.js",
-    "static/css/main.2ac067ff.chunk.css",
+    "static/css/main.ec73b4e6.chunk.css",
     "static/js/main.f2651022.chunk.js"
   ]
 }
