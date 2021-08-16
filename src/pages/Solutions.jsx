@@ -21,7 +21,7 @@ const [url,setUrl] = useState();
 const [displaySongActivity,setDisplaySongActivity] = useState();
 const [title,setTitle] = useState();
 const [activityType,setActivityType] = useState("song");
-const carouselInterv = 1500;
+const carouselInterv = 1000;
 
 let history = useHistory();
 
@@ -85,14 +85,16 @@ function podcasts(){
 
 function randASong(){
 	const results = [danceMe,calming,chopin,bumpy];
-	const randomIndex = Math.floor(Math.random() * results.length-1);
-	return results[randomIndex]();
+	const randomIndex = Math.floor(Math.random() * (results.length-1));
+	const result = results[randomIndex];
+	return result();
 }
 
 function randAnActivityOrSong(){
 	const results = [danceMe,calming,chopin,bumpy,podcasts,meetingPeople,rebirthing,mrBean];
-	const randomIndex = Math.floor(Math.random() * results.length-1);
-	return results[randomIndex]();
+	const randomIndex = Math.floor(Math.random() * (results.length-1));
+	const result = results[randomIndex];
+	return result();
 }
 
 const goHome = () => {

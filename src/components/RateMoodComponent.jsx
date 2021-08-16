@@ -72,7 +72,7 @@ function RateMoodComponent({activeUser}) {
 <Alert style={{display:(!isRated? "none" : "block")}} className="alert alert-secondary"><h4>Thank You!</h4>
 <p>
 <Link className="button button-primary" to="/solutions"> Checkout suggested solutions</Link>
-             
+             &nbsp;&nbsp;
      {navigateGraphs}
 </p>
 </Alert>
